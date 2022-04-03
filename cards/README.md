@@ -53,3 +53,44 @@ defp deps do
 - `mix test` run tests
 - no need to install additional libraries
 - doctesting the examples
+
+### Maps
+- just like objects in JS
+
+```elixir
+colors = %{primary: "red", secondary: "blue"}
+colors.primary
+iex> "red"
+colors.secondary
+iex> "blue
+```
+
+- property matching
+```elixir
+%{secondary: secondary_color} = colors
+secondary_color
+iex> "blue"
+```
+
+- updating a property (not adding a new preoperty)
+```elixir
+# 1st way
+colors = Map.put(colors, :primary, "orange")
+# 2nd way
+colors = %{colors | primary: "orange"}
+```
+
+- adding a new property
+```elixir
+colors = Map.put_new(colors, :tercery, "orange")
+```
+
+### Keyword list
+- using atoms `:atom`
+```elixir
+colors = [{:primary, "red"}, {:secondary, "green"}]
+colors = [primary:, "red", secondary: "green"] # the same as above
+colors[:primary]
+iex> "red"
+```
+- if passing to the function as a last argument, the square braces can be omitted
